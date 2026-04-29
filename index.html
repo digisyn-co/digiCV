@@ -3,330 +3,546 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DigiCV — Craft Your Career Story</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>DigiCV by Digisyn|Co. — CV That Gets You Hired</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --ink: #080810; --deep: #0e0e1a; --gold: #d4a843; --gold-2: #f0c355;
-  --cream: #faf7f0; --paper: #f3ede0; --muted: #8a8070; --border: #ddd6c5;
-  --max: 1100px;
-}
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
 
-/* NAV */
+:root {
+  --navy:              #0B1D3A;
+  --navy-light:        #132C55;
+  --navy-mid:          #0F2444;
+  --white:             #FAFBFC;
+  --off-white:         #F3F5F8;
+  --cream:             #E8ECF1;
+  --green:             #00C853;
+  --green-dark:        #00A344;
+  --green-light:       #00E676;
+  --green-glow:        rgba(0,200,83,0.10);
+  --green-glow-strong: rgba(0,200,83,0.22);
+  --text:              #1A2A3A;
+  --text-muted:        #5A6A7A;
+  --text-light:        #8A96A6;
+  --border:            #D8DEE6;
+  --border-light:      #E8EDF2;
+  --shadow-xs:         0 1px 2px  rgba(11,29,58,0.04);
+  --shadow-sm:         0 2px 8px  rgba(11,29,58,0.06);
+  --shadow-md:         0 4px 20px rgba(11,29,58,0.08);
+  --shadow-lg:         0 12px 40px rgba(11,29,58,0.10);
+  --shadow-xl:         0 24px 64px rgba(11,29,58,0.13);
+  --shadow-green:      0 4px 20px rgba(0,200,83,0.28);
+  --shadow-green-lg:   0 8px 32px rgba(0,200,83,0.38);
+  --radius:            12px;
+  --radius-lg:         20px;
+  --radius-xl:         28px;
+  --max-w:             1200px;
+  --nav-h:             72px;
+  --font-display:      'Outfit', sans-serif;
+  --font-body:         'DM Sans', sans-serif;
+  --ease:              cubic-bezier(0.4,0,0.2,1);
+  --ease-bounce:       cubic-bezier(0.34,1.56,0.64,1);
+  --ease-out:          cubic-bezier(0,0,0.2,1);
+  --speed-fast:        0.2s;
+  --speed:             0.35s;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══ NAV — light ══ */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  padding: 1.1rem 0;
-  background: rgba(8,8,16,0.88); backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(212,168,67,0.12);
+  height: var(--nav-h);
+  background: rgba(250,251,252,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--shadow-xs);
 }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900; color: white; text-decoration: none; letter-spacing: -0.03em; }
-.nav-logo span { color: var(--gold); }
-nav ul { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
-nav a { text-decoration: none; font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; text-transform: uppercase; transition: color .2s; }
-nav a:hover { color: white; }
-.nav-cta { background: var(--gold) !important; color: var(--ink) !important; padding: .5rem 1.4rem; border-radius: 3px; font-weight: 700 !important; }
-.nav-cta:hover { background: var(--gold-2) !important; }
+.nav-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 2rem;
+  height: 100%; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.2rem;
+  color: var(--navy); text-decoration: none; letter-spacing: -0.02em;
+  display: flex; align-items: center;
+}
+.nav-logo .pipe { color: var(--border); font-weight: 300; margin: 0 1px; }
+.nav-logo .co   { color: var(--green-dark); }
+.nav-logo .sub  {
+  font-family: var(--font-body); font-size: 0.62rem; font-weight: 500;
+  color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase;
+  margin-left: .7rem; padding-left: .7rem;
+  border-left: 1px solid var(--border);
+}
+nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+nav a { text-decoration: none; font-size: 0.84rem; font-weight: 500; color: var(--text-muted); transition: color var(--speed-fast); }
+nav a:hover { color: var(--navy); }
+.nav-cta {
+  background: var(--green) !important; color: var(--navy) !important;
+  padding: .5rem 1.3rem; border-radius: var(--radius);
+  font-weight: 700 !important; font-family: var(--font-display) !important;
+  transition: background var(--speed-fast), box-shadow var(--speed-fast) !important;
+}
+.nav-cta:hover { background: var(--green-light) !important; box-shadow: var(--shadow-green) !important; }
 
-/* ══ HERO ══ */
+/* ══ HERO — the ONE dark section ══ */
 .hero {
-  min-height: 100vh; background: var(--deep);
+  min-height: 100vh;
+  background: var(--navy);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 120px 2rem 80px;
+  text-align: center; padding: calc(var(--nav-h) + 60px) 2rem 80px;
   position: relative; overflow: hidden;
 }
-.hero-glow {
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+.hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+.hero::after {
+  content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
   width: 900px; height: 600px;
-  background: radial-gradient(ellipse at 50% 30%, rgba(212,168,67,0.14) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 50% 20%, rgba(0,200,83,0.15) 0%, transparent 65%);
   pointer-events: none;
 }
-.hero-ring {
-  position: absolute; border-radius: 50%; pointer-events: none;
-  border: 1px solid rgba(212,168,67,0.07);
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
-}
-.r1 { width: 650px; height: 650px; animation: spin 45s linear infinite; }
-.r2 { width: 1000px; height: 1000px; animation: spin 70s linear infinite reverse; }
-.r3 { width: 1350px; height: 1350px; animation: spin 90s linear infinite; border-color: rgba(212,168,67,0.03); }
-@keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
-.hero-bottom-line {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212,168,67,0.5) 50%, transparent 100%);
-}
-
-.hero-content { position: relative; z-index: 2; max-width: 860px; }
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
 
 .hero-pill {
-  display: inline-flex; align-items: center; gap: .7rem;
-  background: rgba(212,168,67,0.1); border: 1px solid rgba(212,168,67,0.28);
-  color: var(--gold); font-family: 'DM Mono', monospace; font-size: 0.7rem;
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: rgba(0,200,83,0.1); border: 1px solid rgba(0,200,83,0.25);
+  color: var(--green); font-family: 'DM Mono', monospace; font-size: 0.67rem;
   letter-spacing: 0.14em; text-transform: uppercase;
-  padding: .5rem 1.3rem; border-radius: 100px;
-  margin-bottom: 2.2rem;
-  animation: fadeUp .6s ease both;
+  padding: .46rem 1.2rem; border-radius: 100px; margin-bottom: 2rem;
+  animation: fadeUp .5s var(--ease) both;
 }
-.pulse-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease infinite; }
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(1.6)} }
+.pill-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: blink 2s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
 
 .hero-h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(3.4rem, 7.5vw, 7rem);
-  font-weight: 900; line-height: .98; letter-spacing: -0.04em;
-  color: white; margin-bottom: 1.8rem;
-  animation: fadeUp .7s .1s ease both;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 5.8rem); font-weight: 800;
+  line-height: 1.05; letter-spacing: -0.04em; color: var(--white);
+  margin-bottom: 1.5rem; animation: fadeUp .6s .1s var(--ease) both;
 }
-.hero-h1 .gold-it { font-style: italic; font-weight: 300; color: var(--gold); }
-.hero-h1 .stroke { -webkit-text-stroke: 2px rgba(255,255,255,0.2); color: transparent; }
+.hero-h1 em { font-style: italic; font-weight: 300; color: var(--green); }
 
 .hero-sub {
-  font-size: 1.12rem; font-weight: 300; line-height: 1.78;
-  color: rgba(255,255,255,0.48); max-width: 580px; margin: 0 auto 2.8rem;
-  animation: fadeUp .7s .22s ease both;
+  font-size: 1.05rem; line-height: 1.8; color: rgba(243,245,248,0.58);
+  max-width: 620px; margin: 0 auto 2.6rem;
+  animation: fadeUp .6s .2s var(--ease) both;
 }
-.hero-sub strong { color: rgba(255,255,255,0.82); font-weight: 500; }
+.hero-sub .hl { color: rgba(243,245,248,0.84); }
 
 .hero-btns {
-  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-  margin-bottom: 4rem;
-  animation: fadeUp .7s .34s ease both;
+  display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 4.5rem; animation: fadeUp .6s .3s var(--ease) both;
 }
-.btn-gold {
-  display: inline-flex; align-items: center; gap: .6rem;
-  padding: .95rem 2.4rem; background: var(--gold); color: var(--ink);
-  font-weight: 700; font-size: 0.95rem; border-radius: 5px;
-  text-decoration: none; letter-spacing: 0.01em;
-  transition: transform .22s, box-shadow .22s, background .2s;
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .86rem 2rem; background: var(--green); color: var(--navy);
+  font-family: var(--font-display); font-weight: 700; font-size: .92rem;
+  border-radius: var(--radius); text-decoration: none;
+  transition: background var(--speed-fast), transform var(--speed-fast) var(--ease-bounce), box-shadow var(--speed-fast);
 }
-.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(212,168,67,0.4); background: var(--gold-2); }
-.btn-outline {
-  display: inline-flex; align-items: center; gap: .6rem;
-  padding: .95rem 2.4rem; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.75);
-  font-weight: 500; font-size: 0.95rem; border-radius: 5px;
-  text-decoration: none; transition: border-color .2s, background .2s;
+.btn-primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: var(--shadow-green-lg); }
+.btn-promo {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .86rem 2rem; background: rgba(0,200,83,0.08); color: var(--green);
+  border: 1px solid rgba(0,200,83,0.28);
+  font-family: var(--font-display); font-weight: 600; font-size: .92rem;
+  border-radius: var(--radius); text-decoration: none;
+  transition: background var(--speed-fast), transform var(--speed-fast) var(--ease-bounce);
 }
-.btn-outline:hover { border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.05); }
+.btn-promo:hover { background: rgba(0,200,83,0.16); transform: translateY(-2px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .86rem 2rem; border: 1px solid rgba(255,255,255,0.18); color: rgba(243,245,248,0.72);
+  font-weight: 500; font-size: .92rem; border-radius: var(--radius);
+  text-decoration: none; transition: border-color var(--speed-fast), background var(--speed-fast);
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.38); background: rgba(255,255,255,0.06); }
 
-/* FLOATING CARDS */
+/* CV cards */
 .hero-cards {
   position: relative; display: flex; justify-content: center; align-items: center;
-  height: 290px; animation: fadeUp .9s .48s ease both;
+  height: 290px; animation: fadeUp .8s .45s var(--ease) both;
 }
 .hcard {
-  width: 195px; border-radius: 8px; overflow: hidden;
-  box-shadow: 0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05);
-  position: absolute; transition: transform .35s ease;
+  width: 192px; border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.48), 0 0 0 1px rgba(255,255,255,0.06);
+  position: absolute; transition: transform var(--speed) var(--ease);
 }
 .hcard:hover { z-index: 10 !important; }
-.hc1 { left: 50%; top: 50%; transform: translate(calc(-50% - 195px), -50%) rotate(-9deg); z-index: 1; }
-.hc1:hover { transform: translate(calc(-50% - 195px), -50%) rotate(-4deg) scale(1.07); }
-.hc2 { left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-1.5deg); z-index: 3; width: 215px; }
-.hc2:hover { transform: translate(-50%, -50%) rotate(0deg) scale(1.05); }
-.hc3 { left: 50%; top: 50%; transform: translate(calc(-50% + 205px), -50%) rotate(8deg); z-index: 1; }
-.hc3:hover { transform: translate(calc(-50% + 205px), -50%) rotate(3deg) scale(1.07); }
+.hc1 { left:50%; top:50%; transform:translate(calc(-50% - 192px),-50%) rotate(-8deg); z-index:1; }
+.hc1:hover { transform:translate(calc(-50% - 192px),-50%) rotate(-3deg) scale(1.06); }
+.hc2 { left:50%; top:50%; transform:translate(-50%,-50%) rotate(-1deg); z-index:3; width:212px; }
+.hc2:hover { transform:translate(-50%,-50%) rotate(0) scale(1.04); }
+.hc3 { left:50%; top:50%; transform:translate(calc(-50% + 202px),-50%) rotate(8deg); z-index:1; }
+.hc3:hover { transform:translate(calc(-50% + 202px),-50%) rotate(3deg) scale(1.06); }
 
-/* Card: Dark */
-.cd { background: #11111e; }
-.cd-h { background: linear-gradient(135deg,#181830,#0e0e1e); padding: 1rem 1.1rem; border-bottom: 1px solid rgba(212,168,67,0.18); }
-.cd-name { font-family: 'Fraunces', serif; font-size: .88rem; font-weight: 700; color: white; }
-.cd-title { font-size: .5rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-top: .2rem; }
-.cd-b { padding: .9rem 1.1rem; }
-.cd-s { font-family: 'DM Mono', monospace; font-size: .47rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
-.dl { height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; margin-bottom: .22rem; }
-.dl.g { background: linear-gradient(90deg,var(--gold),transparent); width: 82%; }
-.dl.w85{width:85%} .dl.w65{width:65%}
-.cd-bar { display: flex; align-items: center; gap: .5rem; margin-bottom: .28rem; }
-.cd-bl { font-size: .43rem; color: rgba(255,255,255,0.4); width: 52px; flex-shrink: 0; }
-.cd-bt { flex:1; height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; }
-.cd-bf { height: 100%; background: var(--gold); border-radius: 2px; }
+.cd { background: var(--navy-mid); }
+.cd-h { background: var(--navy-light); padding:.9rem 1.1rem; border-bottom:1px solid rgba(0,200,83,0.18); }
+.cd-name { font-family:var(--font-display); font-size:.84rem; font-weight:700; color:var(--white); }
+.cd-title { font-size:.46rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green); margin-top:.16rem; }
+.cd-b { padding:.85rem 1.1rem; }
+.cd-s { font-family:'DM Mono',monospace; font-size:.43rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green); margin-bottom:.38rem; }
+.bar-r { display:flex; align-items:center; gap:.45rem; margin-bottom:.25rem; }
+.bar-l { font-size:.4rem; color:rgba(243,245,248,0.36); width:50px; flex-shrink:0; }
+.bar-t { flex:1; height:3px; background:rgba(255,255,255,0.07); border-radius:2px; }
+.bar-f { height:100%; background:var(--green); border-radius:2px; }
+.cdl { height:3px; background:rgba(255,255,255,0.07); border-radius:2px; margin-bottom:.2rem; }
+.cdl.a{width:85%} .cdl.b{width:66%} .cdl.c{width:78%}
 
-/* Card: Light */
-.cl { background: white; }
-.cl-h { background: var(--ink); padding: 1rem 1.1rem; }
-.cl-name { font-family: 'Fraunces', serif; font-size: .92rem; font-weight: 900; color: white; }
-.cl-title { font-size: .5rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-top: .18rem; }
-.cl-b { padding: .9rem 1.1rem; }
-.cl-s { font-family: 'DM Mono', monospace; font-size: .47rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid #e8e4dc; padding-bottom: .25rem; margin-bottom: .45rem; }
-.ll { height: 3px; background: #ece8e0; border-radius: 2px; margin-bottom: .22rem; }
-.ll.w90{width:90%} .ll.w75{width:75%} .ll.w60{width:60%} .ll.w50{width:50%}
-.cl-tags { display: flex; gap: .25rem; flex-wrap: wrap; margin-top: .4rem; }
-.cl-tag { background: #f5f0e5; padding: .18rem .42rem; border-radius: 2px; font-size: .4rem; color: #7a7060; }
+.cl { background:var(--white); }
+.cl-h { background:var(--navy); padding:.9rem 1.1rem; }
+.cl-name { font-family:var(--font-display); font-size:.9rem; font-weight:800; color:var(--white); }
+.cl-title { font-size:.46rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green); margin-top:.16rem; }
+.cl-b { padding:.85rem 1.1rem; }
+.cl-s { font-family:'DM Mono',monospace; font-size:.43rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green-dark); border-bottom:1px solid var(--border); padding-bottom:.22rem; margin-bottom:.38rem; }
+.cll { height:3px; background:var(--cream); border-radius:2px; margin-bottom:.2rem; }
+.cll.a{width:90%} .cll.b{width:72%} .cll.c{width:60%} .cll.d{width:82%}
+.cl-tags { display:flex; gap:.22rem; flex-wrap:wrap; margin-top:.3rem; }
+.cl-tag { background:var(--green-glow); color:var(--green-dark); padding:.16rem .4rem; border-radius:4px; font-size:.38rem; font-weight:600; }
 
-/* Card: Web */
-.cw { background: #090918; }
-.cw-bar { background: #111122; padding: .55rem .9rem; display: flex; align-items: center; gap: .35rem; }
-.cw-d { width: 5px; height: 5px; border-radius: 50%; }
-.cw-url { margin-left: .5rem; font-family: 'DM Mono', monospace; font-size: .4rem; color: rgba(255,255,255,0.25); }
-.cw-body { padding: 1rem 1.1rem; text-align: center; }
-.cw-av { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg,var(--gold),var(--gold-2)); margin: 0 auto .45rem; border: 2px solid rgba(212,168,67,0.3); }
-.cw-name { font-family: 'Fraunces', serif; font-size: .78rem; font-weight: 700; color: white; }
-.cw-role { font-size: .44rem; color: var(--gold); letter-spacing: .1em; text-transform: uppercase; margin-top: .12rem; }
-.cw-nav { display: flex; justify-content: center; gap: .65rem; margin-top: .5rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: .5rem; }
-.cw-nav span { font-size: .4rem; color: rgba(255,255,255,0.3); }
-.cw-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem; margin-top: .65rem; }
-.cw-st { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 3px; padding: .4rem; text-align: center; }
-.cw-stn { font-family: 'Fraunces', serif; font-size: .68rem; color: var(--gold); font-weight: 700; }
-.cw-stl { font-size: .36rem; color: rgba(255,255,255,0.28); margin-top: .1rem; }
+.cw { background:var(--navy); }
+.cw-bar { background:var(--navy-light); padding:.5rem .85rem; display:flex; align-items:center; gap:.32rem; }
+.wd { width:5px; height:5px; border-radius:50%; }
+.wd.r{background:#f87171} .wd.y{background:#fbbf24} .wd.g{background:var(--green)}
+.cw-url { margin-left:.5rem; font-family:'DM Mono',monospace; font-size:.38rem; color:rgba(255,255,255,0.24); }
+.cw-body { padding:1rem 1.1rem; text-align:center; }
+.cw-av { width:30px; height:30px; border-radius:50%; background:linear-gradient(135deg,var(--green-dark),var(--green-light)); margin:0 auto .4rem; border:2px solid rgba(0,200,83,0.3); }
+.cw-name { font-family:var(--font-display); font-size:.78rem; font-weight:700; color:var(--white); }
+.cw-role { font-size:.4rem; color:var(--green); letter-spacing:.1em; text-transform:uppercase; margin-top:.1rem; }
+.cw-nav { display:flex; justify-content:center; gap:.6rem; margin-top:.45rem; border-top:1px solid rgba(255,255,255,0.06); padding-top:.45rem; }
+.cw-nav span { font-size:.36rem; color:rgba(255,255,255,0.28); }
+.cw-stats { display:grid; grid-template-columns:1fr 1fr; gap:.3rem; margin-top:.55rem; }
+.cw-st { background:rgba(0,200,83,0.07); border:1px solid rgba(0,200,83,0.15); border-radius:6px; padding:.36rem; text-align:center; }
+.cw-sn { font-family:var(--font-display); font-size:.66rem; font-weight:700; color:var(--green); }
+.cw-sl { font-size:.33rem; color:rgba(255,255,255,0.26); margin-top:.08rem; }
 
-/* TICKER */
-.ticker-wrap { background: var(--gold); overflow: hidden; padding: .65rem 0; white-space: nowrap; }
-.ticker { display: inline-flex; animation: ticker 22s linear infinite; }
-.ticker span { font-family: 'DM Mono', monospace; font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); padding: 0 2rem; }
-.ticker span::after { content: '✦'; margin-left: 2rem; opacity: .45; }
+/* ══ TICKER — green stripe ══ */
+.ticker-wrap { background:var(--green); overflow:hidden; padding:.62rem 0; white-space:nowrap; }
+.ticker-inner { display:inline-flex; animation:ticker 24s linear infinite; }
+.ticker-inner span { font-family:'DM Mono',monospace; font-size:.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--navy); padding:0 2rem; }
+.ticker-inner span::after { content:'✦'; margin-left:2rem; opacity:.35; }
 @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-/* STATS */
-.stats-bar { background: var(--ink); }
-.stats-inner { max-width: var(--max); margin: 0 auto; padding: 0 2rem; display: flex; }
-.stat-cell { flex: 1; text-align: center; padding: 2.8rem 1rem; border-right: 1px solid rgba(255,255,255,0.07); }
-.stat-cell:last-child { border-right: none; }
-.stat-n { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 900; color: var(--gold); line-height: 1; }
-.stat-l { font-size: .73rem; color: rgba(255,255,255,0.38); margin-top: .45rem; letter-spacing: .06em; text-transform: uppercase; }
+/* ══ STATS — very light ══ */
+.stats-bar { background: var(--off-white); border-bottom: 1px solid var(--border-light); }
+.stats-inner { max-width:var(--max-w); margin:0 auto; padding:0 2rem; display:flex; }
+.stat-cell { flex:1; text-align:center; padding:2.4rem 1rem; border-right:1px solid var(--border-light); }
+.stat-cell:last-child { border-right:none; }
+.stat-n { font-family:var(--font-display); font-size:2.6rem; font-weight:800; color:var(--green-dark); letter-spacing:-.04em; line-height:1; }
+.stat-l { font-size:.7rem; color:var(--text-light); margin-top:.38rem; letter-spacing:.05em; text-transform:uppercase; }
 
-/* SECTION HELPERS */
+/* ══ SECTION BASE ══ */
 .section { padding: 6rem 0; }
-.sec-inner { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+.sec-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+
 .eyebrow {
-  font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: .9rem;
-  display: flex; align-items: center; justify-content: center; gap: .7rem;
+  font-family: 'DM Mono', monospace; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--green-dark); margin-bottom: .85rem;
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
 }
-.eyebrow::before, .eyebrow::after { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.eyebrow::before, .eyebrow::after { content:''; width:18px; height:1px; background:var(--green); }
+
 .sec-h2 {
-  font-family: 'Fraunces', serif; font-size: clamp(2.2rem,4.5vw,3.4rem); font-weight: 900;
-  line-height: 1.08; letter-spacing: -.03em; margin-bottom: 1rem; text-align: center;
+  font-family: var(--font-display); font-size: clamp(2rem,4vw,3rem); font-weight: 800;
+  letter-spacing: -.035em; line-height: 1.1; margin-bottom: 1rem; text-align: center; color: var(--navy);
 }
-.sec-sub { font-size: 1rem; color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.75; text-align: center; }
+.sec-sub { font-size: .97rem; color: var(--text-muted); max-width: 520px; margin: 0 auto; line-height: 1.75; text-align: center; }
 
-/* PRICING */
-.pricing-bg { background: var(--cream); }
-.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3.5rem; align-items: start; }
-.plan { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform .3s, box-shadow .3s; }
-.plan:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); }
-.plan.top { border-color: var(--gold); transform: translateY(-14px) scale(1.02); box-shadow: 0 28px 64px rgba(212,168,67,0.2); }
-.plan.top:hover { transform: translateY(-20px) scale(1.02); }
-.pop-bar { background: var(--gold); text-align: center; font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); font-weight: 700; padding: .48rem; }
-.plan-h { padding: 2rem 2rem 1.6rem; border-bottom: 1px solid var(--border); }
-.plan-icon { font-size: 1.9rem; margin-bottom: .9rem; }
-.plan-name { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: .4rem; }
-.plan-tagline { font-size: .82rem; color: var(--muted); line-height: 1.55; }
-.plan-price { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); }
-.pnum { font-family: 'Fraunces', serif; font-size: 2.8rem; font-weight: 900; line-height: 1; }
-.pnum sup { font-size: 1rem; color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 400; vertical-align: super; }
-.pnote { font-size: .74rem; color: var(--muted); margin-top: .4rem; }
-.plan-feats { padding: 1.6rem 2rem; }
-.plan-feats li { list-style: none; font-size: .84rem; padding: .55rem 0; border-bottom: 1px solid rgba(221,214,197,0.4); display: flex; gap: .7rem; align-items: flex-start; line-height: 1.45; }
-.plan-feats li:last-child { border-bottom: none; }
-.fcheck { color: var(--gold); flex-shrink: 0; font-weight: 700; }
-.plan-btn { display: block; margin: 0 2rem 2rem; text-align: center; padding: .9rem; border-radius: 6px; font-weight: 700; font-size: .88rem; text-decoration: none; background: var(--ink); color: white; transition: opacity .2s, transform .15s; }
-.plan.top .plan-btn { background: var(--gold); color: var(--ink); }
-.plan-btn:hover { opacity: .85; transform: scale(.985); }
+/* ══ PRICING — white cards on off-white bg ══ */
+.bg-offwhite { background: var(--off-white); }
+.bg-white    { background: var(--white); }
+.bg-cream    { background: var(--cream); }
 
-/* EXAMPLES */
-.examples-bg { background: white; }
-.ex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3.5rem; }
-.ex-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: box-shadow .3s; }
-.ex-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.09); }
-.ex-prev { background: #f0ece2; min-height: 280px; display: flex; align-items: center; justify-content: center; position: relative; padding: 2rem; }
-.ex-lbl { position: absolute; top: 1.2rem; left: 1.2rem; background: var(--ink); color: white; font-family: 'DM Mono', monospace; font-size: .57rem; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .8rem; border-radius: 3px; }
-.ex-info { padding: 1.6rem; }
-.ex-tier { font-family: 'DM Mono', monospace; font-size: .67rem; color: var(--gold); letter-spacing: .08em; margin-bottom: .4rem; }
-.ex-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: .5rem; }
-.ex-desc { font-size: .83rem; color: var(--muted); line-height: 1.65; }
+.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3.5rem; align-items:start; }
+.plan {
+  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: var(--shadow-sm);
+  transition: transform var(--speed) var(--ease-bounce), box-shadow var(--speed) var(--ease);
+}
+.plan:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+.plan.featured {
+  border-color: var(--green); transform: translateY(-14px) scale(1.02);
+  box-shadow: var(--shadow-green-lg);
+}
+.plan.featured:hover { transform: translateY(-20px) scale(1.02); }
+.featured-bar {
+  background: var(--green); text-align: center;
+  font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--navy); font-weight: 700; padding: .44rem;
+}
+.plan-h { padding:1.8rem 1.8rem 1.5rem; border-bottom:1px solid var(--border-light); }
+.plan-icon { font-size:1.75rem; margin-bottom:.82rem; }
+.plan-name { font-family:var(--font-display); font-size:1.25rem; font-weight:700; letter-spacing:-.02em; margin-bottom:.32rem; color:var(--navy); }
+.plan-tagline { font-size:.8rem; color:var(--text-muted); line-height:1.55; }
+.plan-price { padding:1.35rem 1.8rem; border-bottom:1px solid var(--border-light); }
+.pnum { font-family:var(--font-display); font-size:2.5rem; font-weight:800; letter-spacing:-.04em; line-height:1; color:var(--navy); }
+.pnum sup { font-size:.88rem; color:var(--text-muted); font-weight:400; font-family:var(--font-body); vertical-align:super; }
+.pnote { font-size:.72rem; color:var(--text-light); margin-top:.36rem; }
+.plan-feats { padding:1.4rem 1.8rem; }
+.plan-feats li { list-style:none; font-size:.83rem; padding:.5rem 0; border-bottom:1px solid var(--border-light); display:flex; gap:.65rem; align-items:flex-start; line-height:1.5; color:var(--text); }
+.plan-feats li:last-child { border-bottom:none; }
+.fcheck { color:var(--green); flex-shrink:0; font-weight:700; }
+.plan-btn {
+  display:block; margin:0 1.8rem 1.8rem; text-align:center; padding:.86rem;
+  border-radius:var(--radius); font-family:var(--font-display); font-weight:700; font-size:.86rem;
+  text-decoration:none; background:var(--navy); color:var(--white);
+  transition:background var(--speed-fast), transform var(--speed-fast) var(--ease-bounce), box-shadow var(--speed-fast);
+}
+.plan-btn:hover { background:var(--navy-light); transform:translateY(-1px); box-shadow:var(--shadow-md); }
+.plan.featured .plan-btn { background:var(--green); color:var(--navy); }
+.plan.featured .plan-btn:hover { background:var(--green-light); box-shadow:var(--shadow-green); }
+
+/* ══ PROMO — light green tint ══ */
+.promo-section { background: var(--white); padding: 5rem 0; }
+.promo-inner {
+  max-width: 820px; margin: 0 auto; padding: 3rem;
+  background: linear-gradient(135deg, rgba(0,200,83,0.06) 0%, rgba(0,200,83,0.02) 100%);
+  border: 1px solid rgba(0,200,83,0.22);
+  border-radius: var(--radius-xl); position: relative; overflow: hidden;
+}
+.promo-inner::before {
+  content:''; position:absolute; top:-80px; right:-80px; width:320px; height:320px;
+  background:radial-gradient(circle, rgba(0,200,83,0.12) 0%, transparent 65%);
+  pointer-events:none;
+}
+.promo-badge {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--green-glow); border:1px solid rgba(0,200,83,0.28);
+  color:var(--green-dark); font-family:'DM Mono',monospace; font-size:.64rem;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:.4rem 1rem; border-radius:100px; margin-bottom:1.4rem;
+}
+.promo-h2 {
+  font-family:var(--font-display); font-size:clamp(1.7rem,4vw,2.6rem); font-weight:800;
+  letter-spacing:-.03em; color:var(--navy); line-height:1.1; margin-bottom:.9rem; position:relative;
+}
+.promo-h2 .price-tag { color:var(--green-dark); }
+.promo-desc { font-size:.93rem; color:var(--text-muted); line-height:1.78; margin-bottom:2rem; max-width:600px; position:relative; }
+.promo-cols { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:2.4rem; position:relative; }
+.promo-col-label { font-family:'DM Mono',monospace; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--green-dark); margin-bottom:.7rem; }
+.promo-list { list-style:none; }
+.promo-list li { font-size:.84rem; color:var(--text); padding:.38rem 0; display:flex; gap:.6rem; align-items:flex-start; line-height:1.5; border-bottom:1px solid var(--border-light); }
+.promo-list li:last-child { border-bottom:none; }
+.pcheck { color:var(--green); flex-shrink:0; font-weight:700; }
+.btn-promo-cta {
+  display:inline-flex; align-items:center; gap:.65rem;
+  padding:.92rem 2.4rem; background:var(--green); color:var(--navy);
+  font-family:var(--font-display); font-weight:700; font-size:.93rem;
+  border-radius:var(--radius); text-decoration:none; position:relative;
+  transition:background var(--speed-fast), transform var(--speed-fast) var(--ease-bounce), box-shadow var(--speed-fast);
+}
+.btn-promo-cta:hover { background:var(--green-light); transform:translateY(-2px); box-shadow:var(--shadow-green-lg); }
+
+/* ══ EXAMPLES ══ */
+.ex-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3.5rem; }
+.ex-card {
+  border:1px solid var(--border); border-radius:var(--radius-lg);
+  overflow:hidden; box-shadow:var(--shadow-sm);
+  transition:box-shadow var(--speed) var(--ease), transform var(--speed) var(--ease-bounce);
+  background:var(--white);
+}
+.ex-card:hover { box-shadow:var(--shadow-xl); transform:translateY(-4px); }
+.ex-prev { background:var(--off-white); min-height:280px; display:flex; align-items:center; justify-content:center; position:relative; padding:2rem; }
+.ex-lbl { position:absolute; top:1rem; left:1rem; background:var(--navy); color:var(--white); font-family:'DM Mono',monospace; font-size:.55rem; letter-spacing:.1em; text-transform:uppercase; padding:.28rem .75rem; border-radius:6px; }
+.ex-info { padding:1.5rem 1.7rem; }
+.ex-tier { font-family:'DM Mono',monospace; font-size:.63rem; color:var(--green-dark); letter-spacing:.08em; margin-bottom:.32rem; }
+.ex-title { font-family:var(--font-display); font-size:1.12rem; font-weight:700; letter-spacing:-.02em; margin-bottom:.38rem; color:var(--navy); }
+.ex-desc { font-size:.82rem; color:var(--text-muted); line-height:1.65; }
 
 /* PDF mockup */
-.pdf-box { width: 200px; background: white; box-shadow: 4px 8px 32px rgba(0,0,0,0.14); border-radius: 3px; overflow: hidden; }
-.pb-h { background: var(--ink); padding: 1rem 1.2rem; }
-.pb-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 900; color: white; }
-.pb-title { font-size: .53rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-top: .22rem; }
-.pb-b { padding: 1rem 1.2rem; }
-.ps { font-family: 'DM Mono', monospace; font-size: .48rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid #e5e0d5; padding-bottom: .28rem; margin-bottom: .5rem; }
-.px { height: 4px; background: #ece8e0; border-radius: 2px; margin-bottom: .25rem; }
+.pdf-box { width:200px; background:var(--white); box-shadow:var(--shadow-xl); border-radius:var(--radius); overflow:hidden; }
+.pb-h { background:var(--navy); padding:.95rem 1.15rem; }
+.pb-name { font-family:var(--font-display); font-size:.98rem; font-weight:800; color:var(--white); }
+.pb-title { font-size:.5rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green); margin-top:.18rem; }
+.pb-b { padding:.95rem 1.15rem; }
+.ps { font-family:'DM Mono',monospace; font-size:.45rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green-dark); border-bottom:1px solid var(--border); padding-bottom:.22rem; margin-bottom:.44rem; }
+.px { height:4px; background:var(--cream); border-radius:2px; margin-bottom:.22rem; }
 .px.a{width:90%} .px.b{width:70%} .px.c{width:80%} .px.d{width:55%}
-.pb-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
-.pb-tag { background: #f5f0e5; padding: .2rem .45rem; border-radius: 2px; font-size: .44rem; color: #7a7060; }
+.pb-tags { display:flex; gap:.26rem; flex-wrap:wrap; }
+.pb-tag { background:var(--green-glow); color:var(--green-dark); padding:.17rem .4rem; border-radius:4px; font-size:.42rem; font-weight:600; }
 
 /* Web mockup */
-.web-box { width: 225px; background: #08080f; border-radius: 7px; overflow: hidden; box-shadow: 4px 8px 44px rgba(0,0,0,0.38); }
-.wb-bar { background: #11111e; padding: .55rem .85rem; display: flex; align-items: center; gap: .38rem; }
-.wbd { width: 6px; height: 6px; border-radius: 50%; }
-.wbd.r{background:#ff5f57} .wbd.y{background:#ffbd2e} .wbd.g{background:#28c840}
-.wb-url { margin-left: .5rem; font-family: 'DM Mono', monospace; font-size: .42rem; color: rgba(255,255,255,0.28); }
-.wb-hero { padding: 1.2rem; text-align: center; background: linear-gradient(180deg,#0e0e20,#08080f); }
-.wb-av { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,var(--gold),var(--gold-2)); margin: 0 auto .45rem; border: 2px solid rgba(212,168,67,0.3); }
-.wb-name { font-family: 'Fraunces', serif; font-size: .82rem; font-weight: 700; color: white; }
-.wb-role { font-size: .44rem; color: var(--gold); letter-spacing: .1em; text-transform: uppercase; margin-top: .13rem; }
-.wb-nav { display: flex; justify-content: center; gap: .75rem; margin-top: .55rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: .55rem; }
-.wb-nav span { font-size: .4rem; color: rgba(255,255,255,0.32); }
-.wb-body { padding: .8rem 1rem 1rem; }
-.wb-sec { font-family: 'DM Mono', monospace; font-size: .44rem; color: var(--gold); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem; }
-.wb-tags { display: flex; gap: .28rem; flex-wrap: wrap; }
-.wb-tag { background: rgba(212,168,67,0.1); border: 1px solid rgba(212,168,67,0.2); padding: .2rem .48rem; border-radius: 3px; font-size: .4rem; color: var(--gold); }
-.wb-bars { margin-top: .6rem; }
-.wb-br { display: flex; align-items: center; gap: .4rem; margin-bottom: .28rem; }
-.wb-bl { font-size: .4rem; color: rgba(255,255,255,0.38); width: 48px; flex-shrink: 0; }
-.wb-bt { flex:1; height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; }
-.wb-bf { height: 100%; background: var(--gold); border-radius: 2px; }
+.web-box { width:222px; background:var(--navy); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-xl); }
+.wb-bar { background:var(--navy-light); padding:.52rem .85rem; display:flex; align-items:center; gap:.32rem; }
+.wbd { width:6px; height:6px; border-radius:50%; }
+.wbd.r{background:#f87171} .wbd.y{background:#fbbf24} .wbd.g{background:var(--green)}
+.wb-url { margin-left:.5rem; font-family:'DM Mono',monospace; font-size:.4rem; color:rgba(255,255,255,0.26); }
+.wb-hero { padding:1.1rem; text-align:center; background:linear-gradient(180deg,var(--navy-light),var(--navy)); }
+.wb-av { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,var(--green-dark),var(--green-light)); margin:0 auto .42rem; border:2px solid rgba(0,200,83,0.3); }
+.wb-name { font-family:var(--font-display); font-size:.8rem; font-weight:700; color:var(--white); }
+.wb-role { font-size:.42rem; color:var(--green); letter-spacing:.1em; text-transform:uppercase; margin-top:.1rem; }
+.wb-nav { display:flex; justify-content:center; gap:.7rem; margin-top:.5rem; border-top:1px solid rgba(255,255,255,0.06); padding-top:.5rem; }
+.wb-nav span { font-size:.38rem; color:rgba(255,255,255,0.28); }
+.wb-body { padding:.75rem 1rem .95rem; }
+.wb-sec { font-family:'DM Mono',monospace; font-size:.42rem; color:var(--green); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.36rem; }
+.wb-tags { display:flex; gap:.24rem; flex-wrap:wrap; }
+.wb-tag { background:var(--green-glow); border:1px solid rgba(0,200,83,0.2); padding:.17rem .44rem; border-radius:4px; font-size:.39rem; color:var(--green); }
+.wb-bars { margin-top:.52rem; }
+.wb-br { display:flex; align-items:center; gap:.38rem; margin-bottom:.25rem; }
+.wb-bl { font-size:.38rem; color:rgba(255,255,255,0.34); width:46px; flex-shrink:0; }
+.wb-bt { flex:1; height:3px; background:rgba(255,255,255,0.06); border-radius:2px; }
+.wb-bf { height:100%; background:var(--green); border-radius:2px; }
 
-/* PROCESS */
-.process-bg { background: var(--ink); }
-.process-bg .sec-h2 { color: white; }
-.process-bg .sec-sub { color: rgba(255,255,255,0.4); }
-.steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; margin-top: 3.5rem; }
-.step { text-align: center; padding: 2rem 1.5rem; border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; }
-.step-n { font-family: 'Fraunces', serif; font-size: 3.8rem; font-weight: 900; color: rgba(212,168,67,0.1); line-height: 1; margin-bottom: .4rem; }
-.step-ico { font-size: 1.6rem; margin-bottom: .75rem; }
-.step-t { font-size: 1rem; font-weight: 600; color: white; margin-bottom: .5rem; }
-.step-d { font-size: .81rem; color: rgba(255,255,255,0.4); line-height: 1.65; }
-
-/* TESTIMONIALS */
-.testi-bg { background: var(--paper); }
-.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
-.testi { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; }
-.t-stars { font-size: .8rem; color: var(--gold); letter-spacing: .05rem; margin-bottom: .9rem; }
-.t-q { font-size: .88rem; line-height: 1.72; font-style: italic; color: var(--ink); margin-bottom: 1.2rem; }
-.t-name { font-size: .82rem; font-weight: 700; }
-.t-role { font-size: .74rem; color: var(--muted); margin-top: .15rem; }
-
-/* CTA */
-.cta-banner {
-  background: linear-gradient(135deg,var(--ink) 0%,#14142a 100%);
-  padding: 7rem 2rem; text-align: center; position: relative; overflow: hidden;
+/* ══ PROCESS — off-white bg, light cards ══ */
+.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem; margin-top:3.5rem; }
+.step {
+  background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:1.8rem 1.5rem; text-align:center; box-shadow:var(--shadow-xs);
+  transition:border-color var(--speed) var(--ease), box-shadow var(--speed) var(--ease), transform var(--speed) var(--ease-bounce);
 }
-.cta-banner::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:700px; height:500px; background:radial-gradient(ellipse,rgba(212,168,67,0.13) 0%,transparent 70%); pointer-events:none; }
-.cta-h2 { font-family: 'Fraunces', serif; font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 900; color: white; letter-spacing: -.04em; line-height: 1.05; margin-bottom: 1.2rem; position: relative; }
-.cta-h2 em { font-style: italic; font-weight: 300; color: var(--gold); }
-.cta-p { font-size: 1rem; color: rgba(255,255,255,0.45); max-width: 440px; margin: 0 auto 2.8rem; line-height: 1.75; position: relative; }
-.btn-cta { display: inline-flex; align-items: center; gap: .7rem; padding: 1.1rem 3.2rem; background: var(--gold); color: var(--ink); font-weight: 700; font-size: 1rem; border-radius: 6px; text-decoration: none; position: relative; transition: transform .22s, box-shadow .22s; }
-.btn-cta:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(212,168,67,0.38); background: var(--gold-2); }
+.step:hover { border-color:var(--green); box-shadow:var(--shadow-green); transform:translateY(-4px); }
+.step-n { font-family:var(--font-display); font-size:3.2rem; font-weight:800; color:var(--cream); line-height:1; margin-bottom:.28rem; letter-spacing:-.04em; }
+.step-ico { font-size:1.5rem; margin-bottom:.65rem; }
+.step-t { font-size:.95rem; font-weight:700; color:var(--navy); margin-bottom:.42rem; font-family:var(--font-display); }
+.step-d { font-size:.8rem; color:var(--text-muted); line-height:1.65; }
 
-/* FOOTER */
-footer { background: #050508; padding: 2.5rem 0; border-top: 1px solid rgba(255,255,255,0.04); }
-.foot-inner { max-width: var(--max); margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-.foot-brand { font-family: 'Fraunces', serif; font-size: 1.2rem; color: white; font-weight: 900; }
-.foot-brand span { color: var(--gold); }
-.foot-copy { font-size: .74rem; color: rgba(255,255,255,0.28); margin-top: .3rem; }
-.foot-links { display: flex; gap: 1.8rem; }
-.foot-links a { color: rgba(255,255,255,0.3); font-size: .8rem; text-decoration: none; transition: color .2s; }
-.foot-links a:hover { color: var(--gold); }
+/* ══ TESTIMONIALS — white cards on cream ══ */
+.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:3rem; }
+.testi {
+  background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:1.7rem; box-shadow:var(--shadow-sm);
+  transition:box-shadow var(--speed) var(--ease), transform var(--speed) var(--ease-bounce);
+}
+.testi:hover { box-shadow:var(--shadow-lg); transform:translateY(-3px); }
+.t-stars { font-size:.78rem; color:var(--green); letter-spacing:.04rem; margin-bottom:.82rem; }
+.t-q { font-size:.86rem; line-height:1.72; font-style:italic; color:var(--text); margin-bottom:1.1rem; }
+.t-name { font-family:var(--font-display); font-size:.8rem; font-weight:700; color:var(--navy); }
+.t-role { font-size:.73rem; color:var(--text-muted); margin-top:.12rem; }
 
-@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+/* ══ CONTACT — off-white ══ */
+.contact-grid { display:grid; grid-template-columns:1fr 1.3fr; gap:4rem; margin-top:3rem; align-items:start; }
+.contact-left h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:700; letter-spacing:-.02em; margin-bottom:.75rem; color:var(--navy); }
+.contact-left p { font-size:.9rem; color:var(--text-muted); line-height:1.75; margin-bottom:1.4rem; }
+.contact-link {
+  display:flex; align-items:center; gap:.8rem;
+  padding:.88rem 1.1rem; background:var(--white); border:1px solid var(--border);
+  border-radius:var(--radius); margin-bottom:.65rem; text-decoration:none; color:var(--text);
+  box-shadow:var(--shadow-xs);
+  transition:border-color var(--speed-fast), box-shadow var(--speed-fast), transform var(--speed-fast) var(--ease-bounce);
+}
+.contact-link:hover { border-color:var(--green); box-shadow:var(--shadow-green); transform:translateY(-1px); }
+.cl-icon { width:36px; height:36px; background:var(--green-glow); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+.cl-lbl { font-size:.7rem; color:var(--text-light); }
+.cl-val { font-size:.87rem; font-weight:600; color:var(--text); }
 
-@media (max-width: 900px) {
-  nav ul { display: none; }
-  .hero { padding: 100px 1.5rem 60px; }
-  .hc1 { transform: translate(calc(-50% - 120px), -50%) rotate(-9deg) scale(.8); }
-  .hc3 { transform: translate(calc(-50% + 120px), -50%) rotate(8deg) scale(.8); }
-  .hc2 { width: 185px; }
-  .pricing-grid, .ex-grid, .steps, .testi-grid { grid-template-columns: 1fr; }
-  .plan.top { transform: none; }
-  .stats-inner { flex-direction: column; }
-  .stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 1.5rem; }
-  .foot-inner { flex-direction: column; align-items: center; text-align: center; }
-  .section { padding: 4rem 0; }
+.contact-form-box {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-md);
+}
+.form-title { font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:1.4rem; color:var(--navy); }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.fg { margin-bottom:.95rem; }
+.fg label { display:block; font-size:.75rem; font-weight:600; color:var(--text); margin-bottom:.36rem; }
+.fg input, .fg textarea {
+  width:100%; padding:.68rem .9rem;
+  border:1px solid var(--border); border-radius:var(--radius);
+  font-size:.87rem; font-family:var(--font-body); color:var(--text);
+  background:var(--off-white); outline:none;
+  transition:border-color var(--speed-fast), box-shadow var(--speed-fast), background var(--speed-fast);
+}
+.fg input:focus, .fg textarea:focus {
+  border-color:var(--green); box-shadow:0 0 0 3px var(--green-glow); background:var(--white);
+}
+.fg textarea { resize:vertical; min-height:88px; }
+.upload-area {
+  width:100%; padding:1.2rem; border:2px dashed var(--border); border-radius:var(--radius);
+  text-align:center; cursor:pointer; background:var(--off-white);
+  transition:border-color var(--speed-fast), background var(--speed-fast);
+  position:relative;
+}
+.upload-area:hover { border-color:var(--green); background:rgba(0,200,83,0.04); }
+.upload-area input[type="file"] { position:absolute; inset:0; opacity:0; cursor:pointer; }
+.upload-ico { font-size:1.3rem; margin-bottom:.3rem; }
+.upload-txt { font-size:.78rem; color:var(--text-muted); }
+.upload-txt strong { color:var(--green-dark); }
+.form-submit {
+  width:100%; padding:.88rem; background:var(--green); color:var(--navy);
+  font-family:var(--font-display); font-weight:700; font-size:.92rem;
+  border-radius:var(--radius); border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:.6rem;
+  text-decoration:none;
+  transition:background var(--speed-fast), transform var(--speed-fast) var(--ease-bounce), box-shadow var(--speed-fast);
+}
+.form-submit:hover { background:var(--green-light); transform:translateY(-1px); box-shadow:var(--shadow-green); }
+.form-note { font-size:.7rem; color:var(--text-light); text-align:center; margin-top:.72rem; }
+
+/* ══ FINAL CTA — navy strip ══ */
+.final-cta {
+  background: var(--navy); padding: 7rem 2rem; text-align: center; position: relative; overflow: hidden;
+}
+.final-cta::before {
+  content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:700px; height:500px;
+  background:radial-gradient(ellipse, rgba(0,200,83,0.13) 0%, transparent 68%);
+  pointer-events:none;
+}
+.final-cta h2 {
+  font-family:var(--font-display); font-size:clamp(2.4rem,5.5vw,4rem); font-weight:800;
+  color:var(--white); letter-spacing:-.04em; line-height:1.06; margin-bottom:1.1rem; position:relative;
+}
+.final-cta h2 em { font-style:italic; font-weight:300; color:var(--green); }
+.final-cta p { font-size:.97rem; color:rgba(243,245,248,0.48); max-width:440px; margin:0 auto 2.6rem; line-height:1.75; position:relative; }
+.btn-cta {
+  display:inline-flex; align-items:center; gap:.7rem;
+  padding:1.05rem 3rem; background:var(--green); color:var(--navy);
+  font-family:var(--font-display); font-weight:700; font-size:.97rem;
+  border-radius:var(--radius); text-decoration:none; position:relative;
+  transition:background var(--speed-fast), transform var(--speed-fast) var(--ease-bounce), box-shadow var(--speed-fast);
+}
+.btn-cta:hover { background:var(--green-light); transform:translateY(-3px); box-shadow:var(--shadow-green-lg); }
+
+/* ══ FOOTER ══ */
+footer { background: var(--navy-mid); padding: 2.5rem 0; border-top: 1px solid rgba(255,255,255,0.04); }
+.foot-inner { max-width:var(--max-w); margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+.foot-logo { font-family:var(--font-display); font-weight:800; font-size:1.12rem; color:var(--white); }
+.foot-logo .pipe { color:rgba(255,255,255,0.2); font-weight:300; }
+.foot-logo .co   { color:var(--green); }
+.foot-logo .sub  { font-family:var(--font-body); font-size:.6rem; font-weight:500; color:rgba(255,255,255,0.3); letter-spacing:.1em; text-transform:uppercase; margin-left:.6rem; padding-left:.6rem; border-left:1px solid rgba(255,255,255,0.1); }
+.foot-copy { font-size:.72rem; color:rgba(255,255,255,0.24); margin-top:.28rem; }
+.foot-links { display:flex; gap:1.6rem; }
+.foot-links a { color:rgba(255,255,255,0.28); font-size:.78rem; text-decoration:none; transition:color var(--speed-fast); }
+.foot-links a:hover { color:var(--green); }
+
+/* ══ FLOATING MESSENGER ══ */
+.fb-float {
+  position:fixed; bottom:1.8rem; right:1.8rem; z-index:999;
+  background:#0084ff; display:flex; align-items:center; gap:.65rem;
+  padding:.7rem 1.2rem .7rem .95rem; border-radius:100px;
+  box-shadow:0 6px 24px rgba(0,132,255,0.42); text-decoration:none;
+  animation:slideUp .5s .8s var(--ease) both, bob 3s 1.5s ease-in-out infinite;
+  transition:transform var(--speed-fast), box-shadow var(--speed-fast);
+}
+.fb-float:hover { transform:translateY(-3px); box-shadow:0 10px 32px rgba(0,132,255,0.55); }
+.fb-float-label { font-size:.83rem; font-weight:600; color:white; white-space:nowrap; }
+@keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+/* ══ RESPONSIVE ══ */
+@media (max-width:900px) {
+  nav ul { display:none; }
+  .hero { padding:calc(var(--nav-h) + 40px) 1.5rem 60px; }
+  .hc1 { transform:translate(calc(-50% - 115px),-50%) rotate(-8deg) scale(.82); }
+  .hc3 { transform:translate(calc(-50% + 115px),-50%) rotate(8deg) scale(.82); }
+  .hc2 { width:185px; }
+  .pricing-grid,.ex-grid,.steps,.testi-grid,.promo-cols,.contact-grid { grid-template-columns:1fr; }
+  .plan.featured { transform:none; }
+  .stats-inner { flex-direction:column; }
+  .stat-cell { border-right:none; border-bottom:1px solid var(--border-light); padding:1.5rem; }
+  .foot-inner { flex-direction:column; align-items:center; text-align:center; }
+  .section { padding:4rem 0; }
+  .form-row { grid-template-columns:1fr; }
+  .promo-inner { padding:2rem 1.5rem; }
 }
 </style>
 </head>
@@ -335,127 +551,93 @@ footer { background: #050508; padding: 2.5rem 0; border-top: 1px solid rgba(255,
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="#">Digi<span>CV</span></a>
+    <a class="nav-logo" href="#">
+      Digisyn<span class="pipe">|</span><span class="co">Co.</span>
+      <span class="sub">DigiCV</span>
+    </a>
     <ul>
       <li><a href="#examples">Examples</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#pricing" class="nav-cta">Start Now</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://m.me/61558675744252" target="_blank" rel="noopener" class="nav-cta">💬 Chat Now</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-ring r1"></div>
-  <div class="hero-ring r2"></div>
-  <div class="hero-ring r3"></div>
-  <div class="hero-bottom-line"></div>
-
   <div class="hero-content">
-    <div class="hero-pill"><div class="pulse-dot"></div> Professional CV &amp; Portfolio Services</div>
-
-    <h1 class="hero-h1">
-      Your CV Should<br>
-      Open <span class="gold-it">Every Door</span><br>
-      <span class="stroke">You Knock On.</span>
-    </h1>
-
+    <div class="hero-pill"><div class="pill-dot"></div> Professional CV Services by Digisyn|Co.</div>
+    <h1 class="hero-h1">Your CV might be<br><em>underselling you.</em></h1>
     <p class="hero-sub">
-      We craft <strong>stunning CVs and personal websites</strong> that make recruiters stop scrolling and start calling — starting at just <strong>₱599</strong>.
+      You may have the skills and experience,
+      <span class="hl">pero kung hindi malinaw sa CV mo,</span>
+      employers can still miss your value. We help Filipino professionals craft CVs that read sharper, look professional, and show their true value.
     </p>
-
     <div class="hero-btns">
-      <a href="#pricing" class="btn-gold">🚀 See Our Packages</a>
-      <a href="#examples" class="btn-outline">View Examples →</a>
+      <a href="#pricing"  class="btn-primary">📄 Improve My CV</a>
+      <a href="#promo"    class="btn-promo">🎁 Gusto ko ng Promo</a>
+      <a href="#examples" class="btn-ghost">See Examples →</a>
     </div>
-
-    <!-- Three floating CV cards -->
     <div class="hero-cards">
-
-      <!-- Card 1: Dark style -->
       <div class="hcard hc1">
         <div class="cd">
-          <div class="cd-h">
-            <div class="cd-name">Juan dela Cruz</div>
-            <div class="cd-title">Software Engineer</div>
-          </div>
+          <div class="cd-h"><div class="cd-name">Juan dela Cruz</div><div class="cd-title">Software Engineer</div></div>
           <div class="cd-b">
             <div class="cd-s">Experience</div>
-            <div class="dl g"></div><div class="dl w85"></div><div class="dl w65"></div>
-            <div style="margin-top:.7rem">
+            <div class="cdl a"></div><div class="cdl b"></div><div class="cdl c"></div>
+            <div style="margin-top:.65rem">
               <div class="cd-s">Skills</div>
-              <div class="cd-bar"><div class="cd-bl">React</div><div class="cd-bt"><div class="cd-bf" style="width:92%"></div></div></div>
-              <div class="cd-bar"><div class="cd-bl">Node.js</div><div class="cd-bt"><div class="cd-bf" style="width:82%"></div></div></div>
-              <div class="cd-bar"><div class="cd-bl">Python</div><div class="cd-bt"><div class="cd-bf" style="width:74%"></div></div></div>
+              <div class="bar-r"><div class="bar-l">React</div><div class="bar-t"><div class="bar-f" style="width:92%"></div></div></div>
+              <div class="bar-r"><div class="bar-l">Node.js</div><div class="bar-t"><div class="bar-f" style="width:80%"></div></div></div>
+              <div class="bar-r"><div class="bar-l">Python</div><div class="bar-t"><div class="bar-f" style="width:74%"></div></div></div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Card 2: Light style (center) -->
       <div class="hcard hc2">
         <div class="cl">
-          <div class="cl-h">
-            <div class="cl-name">Maria Santos</div>
-            <div class="cl-title">Senior UX Designer</div>
-          </div>
+          <div class="cl-h"><div class="cl-name">Maria Santos</div><div class="cl-title">Senior UX Designer</div></div>
           <div class="cl-b">
             <div class="cl-s">Experience</div>
-            <div class="ll w90"></div><div class="ll w75"></div><div class="ll w60"></div>
-            <div style="margin-top:.7rem">
-              <div class="cl-s">Education</div>
-              <div class="ll w90"></div><div class="ll w50"></div>
-            </div>
-            <div style="margin-top:.7rem">
+            <div class="cll a"></div><div class="cll b"></div><div class="cll c"></div>
+            <div style="margin-top:.65rem"><div class="cl-s">Education</div><div class="cll a"></div><div class="cll d"></div></div>
+            <div style="margin-top:.65rem">
               <div class="cl-s">Skills</div>
-              <div class="cl-tags">
-                <span class="cl-tag">Figma</span><span class="cl-tag">UX Research</span>
-                <span class="cl-tag">Prototyping</span><span class="cl-tag">Webflow</span>
-              </div>
+              <div class="cl-tags"><span class="cl-tag">Figma</span><span class="cl-tag">UX Research</span><span class="cl-tag">Webflow</span><span class="cl-tag">Prototyping</span></div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Card 3: Web style -->
       <div class="hcard hc3">
         <div class="cw">
-          <div class="cw-bar">
-            <div class="cw-d" style="background:#ff5f57"></div>
-            <div class="cw-d" style="background:#ffbd2e"></div>
-            <div class="cw-d" style="background:#28c840"></div>
-            <div class="cw-url">anna.digisyn.co</div>
-          </div>
+          <div class="cw-bar"><div class="wd r"></div><div class="wd y"></div><div class="wd g"></div><div class="cw-url">anna.digisyn.co</div></div>
           <div class="cw-body">
             <div class="cw-av"></div>
-            <div class="cw-name">Anna Reyes</div>
-            <div class="cw-role">Marketing Lead</div>
+            <div class="cw-name">Anna Reyes</div><div class="cw-role">Marketing Lead</div>
             <div class="cw-nav"><span>About</span><span>Work</span><span>Skills</span><span>Contact</span></div>
             <div class="cw-stats">
-              <div class="cw-st"><div class="cw-stn">42%</div><div class="cw-stl">Conversion Lift</div></div>
-              <div class="cw-st"><div class="cw-stn">5yr</div><div class="cw-stl">Experience</div></div>
-              <div class="cw-st"><div class="cw-stn">12</div><div class="cw-stl">Campaigns</div></div>
-              <div class="cw-st"><div class="cw-stn">3×</div><div class="cw-stl">ROI Growth</div></div>
+              <div class="cw-st"><div class="cw-sn">42%</div><div class="cw-sl">Conversions</div></div>
+              <div class="cw-st"><div class="cw-sn">5yr</div><div class="cw-sl">Experience</div></div>
+              <div class="cw-st"><div class="cw-sn">12</div><div class="cw-sl">Campaigns</div></div>
+              <div class="cw-st"><div class="cw-sn">3×</div><div class="cw-sl">ROI Growth</div></div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker">
+  <div class="ticker-inner">
     <span>PDF Resume</span><span>Interactive Website</span><span>Custom Domain</span>
-    <span>24hr Delivery</span><span>ATS Optimized</span><span>Professional Writing</span>
-    <span>From ₱599 Only</span><span>Mobile Friendly</span><span>3× More Callbacks</span>
+    <span>24hr Delivery</span><span>ATS Optimized</span><span>From ₱129 Only</span>
+    <span>3× More Callbacks</span><span>Filipino Professionals</span><span>Digisyn|Co.</span>
     <span>PDF Resume</span><span>Interactive Website</span><span>Custom Domain</span>
-    <span>24hr Delivery</span><span>ATS Optimized</span><span>Professional Writing</span>
-    <span>From ₱599 Only</span><span>Mobile Friendly</span><span>3× More Callbacks</span>
+    <span>24hr Delivery</span><span>ATS Optimized</span><span>From ₱129 Only</span>
+    <span>3× More Callbacks</span><span>Filipino Professionals</span><span>Digisyn|Co.</span>
   </div>
 </div>
 
@@ -470,146 +652,124 @@ footer { background: #050508; padding: 2.5rem 0; border-top: 1px solid rgba(255,
 </div>
 
 <!-- PRICING -->
-<section class="section pricing-bg" id="pricing">
+<section class="section bg-offwhite" id="pricing">
   <div class="sec-inner">
     <p class="eyebrow">Packages</p>
     <h2 class="sec-h2">Choose Your Career Upgrade</h2>
-    <p class="sec-sub">Every package is crafted personally — no templates, no shortcuts.</p>
-
+    <p class="sec-sub">Every package is crafted personally — no templates, no shortcuts. Made for Filipino professionals.</p>
     <div class="pricing-grid">
-      <!-- Plan 1 -->
       <div class="plan">
-        <div class="plan-h">
-          <div class="plan-icon">📄</div>
-          <div class="plan-name">PDF Edition</div>
-          <div class="plan-tagline">A beautifully designed CV delivered as a ready-to-send PDF and editable soft copy.</div>
-        </div>
-        <div class="plan-price">
-          <div class="pnum"><sup>₱</sup>599</div>
-          <div class="pnote">One-time · Delivered in 24 hours</div>
-        </div>
+        <div class="plan-h"><div class="plan-icon">📄</div><div class="plan-name">PDF Edition</div><div class="plan-tagline">A professionally designed CV as a ready-to-send PDF and editable soft copy.</div></div>
+        <div class="plan-price"><div class="pnum"><sup>₱</sup>599</div><div class="pnote">One-time · Delivered in 24 hours</div></div>
         <ul class="plan-feats">
-          <li><span class="fcheck">✦</span> Custom-designed PDF resume</li>
-          <li><span class="fcheck">✦</span> Editable Word / Google Docs file</li>
-          <li><span class="fcheck">✦</span> ATS-optimized formatting</li>
-          <li><span class="fcheck">✦</span> Professional summary writing</li>
-          <li><span class="fcheck">✦</span> 1 round of revisions</li>
+          <li><span class="fcheck">✓</span> Custom-designed PDF resume</li>
+          <li><span class="fcheck">✓</span> Editable Word / Google Docs file</li>
+          <li><span class="fcheck">✓</span> ATS-optimized formatting</li>
+          <li><span class="fcheck">✓</span> Professional summary writing</li>
+          <li><span class="fcheck">✓</span> 1 round of revisions</li>
         </ul>
-        <a href="#" class="plan-btn">Get PDF CV — ₱599</a>
+        <a href="https://m.me/61558675744252" target="_blank" rel="noopener" class="plan-btn">Get PDF CV — ₱599</a>
       </div>
-
-      <!-- Plan 2: Featured -->
-      <div class="plan top">
-        <div class="pop-bar">★ Most Popular</div>
-        <div class="plan-h">
-          <div class="plan-icon">🌐</div>
-          <div class="plan-name">Web Portfolio</div>
-          <div class="plan-tagline">Your own live CV website — modern, mobile-ready, and shareable with one link.</div>
-        </div>
-        <div class="plan-price">
-          <div class="pnum"><sup>₱</sup>799</div>
-          <div class="pnote">One-time · yourname<strong>.digisyn.co</strong></div>
-        </div>
+      <div class="plan featured">
+        <div class="featured-bar">★ Most Popular</div>
+        <div class="plan-h"><div class="plan-icon">🌐</div><div class="plan-name">Web Portfolio</div><div class="plan-tagline">Your own live CV website — modern, mobile-ready, shareable with one link.</div></div>
+        <div class="plan-price"><div class="pnum"><sup>₱</sup>799</div><div class="pnote">One-time · yourname<strong>.digisyn.co</strong></div></div>
         <ul class="plan-feats">
-          <li><span class="fcheck">✦</span> Everything in PDF Edition</li>
-          <li><span class="fcheck">✦</span> Live single-page website</li>
-          <li><span class="fcheck">✦</span> yourname<strong>.digisyn.co</strong> subdomain</li>
-          <li><span class="fcheck">✦</span> Animated &amp; interactive sections</li>
-          <li><span class="fcheck">✦</span> Contact form included</li>
-          <li><span class="fcheck">✦</span> 2 rounds of revisions</li>
+          <li><span class="fcheck">✓</span> Everything in PDF Edition</li>
+          <li><span class="fcheck">✓</span> Live single-page website</li>
+          <li><span class="fcheck">✓</span> yourname<strong>.digisyn.co</strong> subdomain</li>
+          <li><span class="fcheck">✓</span> Animated &amp; interactive sections</li>
+          <li><span class="fcheck">✓</span> Contact form included</li>
+          <li><span class="fcheck">✓</span> 2 rounds of revisions</li>
         </ul>
-        <a href="#" class="plan-btn">Get Web CV — ₱799</a>
+        <a href="https://m.me/61558675744252" target="_blank" rel="noopener" class="plan-btn">Get Web CV — ₱799</a>
       </div>
-
-      <!-- Plan 3 -->
       <div class="plan">
-        <div class="plan-h">
-          <div class="plan-icon">🏆</div>
-          <div class="plan-name">Premium Domain</div>
-          <div class="plan-tagline">A full multi-page personal site on your very own custom domain name.</div>
-        </div>
-        <div class="plan-price">
-          <div class="pnum"><sup>₱</sup>1,299</div>
-          <div class="pnote">Setup + ₱300/month hosting &amp; support</div>
-        </div>
+        <div class="plan-h"><div class="plan-icon">🏆</div><div class="plan-name">Premium Domain</div><div class="plan-tagline">A full multi-page personal website on your very own custom domain name.</div></div>
+        <div class="plan-price"><div class="pnum"><sup>₱</sup>1,299</div><div class="pnote">Setup + ₱300/month hosting &amp; support</div></div>
         <ul class="plan-feats">
-          <li><span class="fcheck">✦</span> Everything in Web Portfolio</li>
-          <li><span class="fcheck">✦</span> Your own domain (e.g. <em>yourname.com</em>)</li>
-          <li><span class="fcheck">✦</span> Multi-page site (Home, Portfolio, About, Contact)</li>
-          <li><span class="fcheck">✦</span> Blog / project showcase section</li>
-          <li><span class="fcheck">✦</span> Monthly content updates</li>
-          <li><span class="fcheck">✦</span> Priority support + unlimited revisions</li>
+          <li><span class="fcheck">✓</span> Everything in Web Portfolio</li>
+          <li><span class="fcheck">✓</span> Your own domain (e.g. <em>yourname.com</em>)</li>
+          <li><span class="fcheck">✓</span> Multi-page: Home, Portfolio, About, Contact</li>
+          <li><span class="fcheck">✓</span> Blog / project showcase section</li>
+          <li><span class="fcheck">✓</span> Monthly content updates</li>
+          <li><span class="fcheck">✓</span> Priority support + unlimited revisions</li>
         </ul>
-        <a href="#" class="plan-btn">Get Premium — ₱1,299</a>
+        <a href="https://m.me/61558675744252" target="_blank" rel="noopener" class="plan-btn">Get Premium — ₱1,299</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ₱129 PROMO -->
+<section class="promo-section" id="promo">
+  <div class="sec-inner">
+    <div class="promo-inner">
+      <div class="promo-badge">🎁 Limited Promo</div>
+      <h2 class="promo-h2">Grab the <span class="price-tag">₱129</span> Resume Starter Promo!</h2>
+      <p class="promo-desc">For only ₱129, we'll help clean up your resume so it looks more presentable, readable, and professional. Best for those who already have a simple resume and just need help making it clearer before sending applications.</p>
+      <div class="promo-cols">
+        <div>
+          <div class="promo-col-label">What's Included</div>
+          <ul class="promo-list">
+            <li><span class="pcheck">✓</span> Basic grammar and wording clean-up</li>
+            <li><span class="pcheck">✓</span> Improved readability</li>
+            <li><span class="pcheck">✓</span> Cleaner 2-page resume structure</li>
+            <li><span class="pcheck">✓</span> Simple formatting suggestions</li>
+            <li><span class="pcheck">✓</span> Final resume in PDF format</li>
+          </ul>
+        </div>
+        <div>
+          <div class="promo-col-label">Best For</div>
+          <ul class="promo-list">
+            <li><span class="pcheck">→</span> Fresh graduates</li>
+            <li><span class="pcheck">→</span> Entry-level applicants</li>
+            <li><span class="pcheck">→</span> Part-time job seekers</li>
+            <li><span class="pcheck">→</span> Anyone needing a quick resume polish</li>
+          </ul>
+        </div>
+      </div>
+      <a href="https://m.me/61558675744252" target="_blank" rel="noopener" class="btn-promo-cta">🎁 Get the ₱129 Starter Pack</a>
+    </div>
+  </div>
+</section>
+
 <!-- EXAMPLES -->
-<section class="section examples-bg" id="examples">
+<section class="section bg-offwhite" id="examples">
   <div class="sec-inner">
     <p class="eyebrow">Portfolio</p>
     <h2 class="sec-h2">See What We Create</h2>
-    <p class="sec-sub">Real examples — crafted to impress at every price point.</p>
-
+    <p class="sec-sub">Real examples from our packages — crafted to impress at every price point.</p>
     <div class="ex-grid">
-      <!-- PDF -->
       <div class="ex-card">
         <div class="ex-prev">
           <div class="ex-lbl">PDF / Soft Copy — ₱599</div>
           <div class="pdf-box">
-            <div class="pb-h">
-              <div class="pb-name">Juan dela Cruz</div>
-              <div class="pb-title">Software Engineer</div>
-            </div>
+            <div class="pb-h"><div class="pb-name">Juan dela Cruz</div><div class="pb-title">Software Engineer</div></div>
             <div class="pb-b">
               <div class="ps">Experience</div>
               <div class="px a"></div><div class="px b"></div><div class="px c"></div>
-              <div style="margin-top:.6rem"></div>
-              <div class="px a"></div><div class="px d"></div>
-              <div style="margin-top:.7rem">
-                <div class="ps">Education</div>
-                <div class="px c"></div><div class="px b"></div>
-              </div>
-              <div style="margin-top:.7rem">
-                <div class="ps">Skills</div>
-                <div class="pb-tags">
-                  <span class="pb-tag">JavaScript</span><span class="pb-tag">React</span>
-                  <span class="pb-tag">Node.js</span><span class="pb-tag">SQL</span>
-                </div>
-              </div>
+              <div style="margin-top:.55rem"></div><div class="px a"></div><div class="px d"></div>
+              <div style="margin-top:.6rem"><div class="ps">Education</div><div class="px c"></div><div class="px b"></div></div>
+              <div style="margin-top:.6rem"><div class="ps">Skills</div><div class="pb-tags"><span class="pb-tag">JavaScript</span><span class="pb-tag">React</span><span class="pb-tag">Node.js</span><span class="pb-tag">SQL</span></div></div>
             </div>
           </div>
         </div>
         <div class="ex-info">
           <div class="ex-tier">₱599 — PDF Edition</div>
           <div class="ex-title">Clean, ATS-Friendly PDF</div>
-          <div class="ex-desc">Professionally typeset and ready to attach to any job application. Includes an editable file so you can update it yourself whenever needed.</div>
+          <div class="ex-desc">Professionally typeset and ready to attach to any job application. Includes an editable file so you can update it yourself.</div>
         </div>
       </div>
-
-      <!-- Web -->
       <div class="ex-card">
         <div class="ex-prev">
           <div class="ex-lbl">Interactive Website — ₱799</div>
           <div class="web-box">
-            <div class="wb-bar">
-              <div class="wbd r"></div><div class="wbd y"></div><div class="wbd g"></div>
-              <div class="wb-url">anna.digisyn.co</div>
-            </div>
-            <div class="wb-hero">
-              <div class="wb-av"></div>
-              <div class="wb-name">Anna Reyes</div>
-              <div class="wb-role">Marketing Strategist</div>
-              <div class="wb-nav"><span>About</span><span>Work</span><span>Skills</span><span>Contact</span></div>
-            </div>
+            <div class="wb-bar"><div class="wbd r"></div><div class="wbd y"></div><div class="wbd g"></div><div class="wb-url">anna.digisyn.co</div></div>
+            <div class="wb-hero"><div class="wb-av"></div><div class="wb-name">Anna Reyes</div><div class="wb-role">Marketing Strategist</div><div class="wb-nav"><span>About</span><span>Work</span><span>Skills</span><span>Contact</span></div></div>
             <div class="wb-body">
               <div class="wb-sec">Skills</div>
-              <div class="wb-tags">
-                <div class="wb-tag">Brand Strategy</div><div class="wb-tag">SEO</div>
-                <div class="wb-tag">Analytics</div><div class="wb-tag">Content</div>
-              </div>
+              <div class="wb-tags"><div class="wb-tag">Brand Strategy</div><div class="wb-tag">SEO</div><div class="wb-tag">Analytics</div><div class="wb-tag">Content</div></div>
               <div class="wb-bars">
                 <div class="wb-br"><div class="wb-bl">Campaigns</div><div class="wb-bt"><div class="wb-bf" style="width:90%"></div></div></div>
                 <div class="wb-br"><div class="wb-bl">Analytics</div><div class="wb-bt"><div class="wb-bf" style="width:76%"></div></div></div>
@@ -628,90 +788,98 @@ footer { background: #050508; padding: 2.5rem 0; border-top: 1px solid rgba(255,
 </section>
 
 <!-- PROCESS -->
-<section class="section process-bg" id="process">
+<section class="section bg-white" id="process">
   <div class="sec-inner">
     <p class="eyebrow">How It Works</p>
     <h2 class="sec-h2">Simple. Fast. Effective.</h2>
     <p class="sec-sub">From your first message to a finished CV — in under 24 hours.</p>
     <div class="steps">
-      <div class="step">
-        <div class="step-n">01</div>
-        <div class="step-ico">📋</div>
-        <div class="step-t">Fill the Form</div>
-        <div class="step-d">Share your history, achievements, and goals through our simple intake form.</div>
-      </div>
-      <div class="step">
-        <div class="step-n">02</div>
-        <div class="step-ico">✍️</div>
-        <div class="step-t">We Design</div>
-        <div class="step-d">Our team crafts your CV with compelling copy, clean layout, and strategic structure.</div>
-      </div>
-      <div class="step">
-        <div class="step-n">03</div>
-        <div class="step-ico">🔍</div>
-        <div class="step-t">Review &amp; Refine</div>
-        <div class="step-d">You review the draft and we fine-tune until it's exactly right. No extra charges.</div>
-      </div>
-      <div class="step">
-        <div class="step-n">04</div>
-        <div class="step-ico">🚀</div>
-        <div class="step-t">Launch &amp; Win</div>
-        <div class="step-d">Receive your files or go live with your site — ready to land your next big role.</div>
-      </div>
+      <div class="step"><div class="step-n">01</div><div class="step-ico">📋</div><div class="step-t">Fill the Form</div><div class="step-d">Share your history, achievements, and goals via our form or Messenger.</div></div>
+      <div class="step"><div class="step-n">02</div><div class="step-ico">✍️</div><div class="step-t">We Design</div><div class="step-d">Our team crafts your CV with compelling copy, clean layout, and strategic structure.</div></div>
+      <div class="step"><div class="step-n">03</div><div class="step-ico">🔍</div><div class="step-t">Review &amp; Refine</div><div class="step-d">You review the draft and we fine-tune until it's exactly right. No extra charges.</div></div>
+      <div class="step"><div class="step-n">04</div><div class="step-ico">🚀</div><div class="step-t">Launch &amp; Win</div><div class="step-d">Receive your files or go live — ready to land your next big role.</div></div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="section testi-bg" id="testimonials">
+<section class="section bg-cream" id="testimonials">
   <div class="sec-inner">
     <p class="eyebrow">Reviews</p>
     <h2 class="sec-h2">They Got The Job. 🎉</h2>
     <div class="testi-grid">
-      <div class="testi">
-        <div class="t-stars">★★★★★</div>
-        <div class="t-q">"Got 3 interview callbacks within a week. The design was professional and the writing really highlighted my strengths."</div>
-        <div class="t-name">Carlo M.</div>
-        <div class="t-role">IT Manager, Makati</div>
+      <div class="testi"><div class="t-stars">★★★★★</div><div class="t-q">"Got 3 interview callbacks within a week. The design was professional and the writing really highlighted my strengths."</div><div class="t-name">Carlo M.</div><div class="t-role">IT Manager, Makati</div></div>
+      <div class="testi"><div class="t-stars">★★★★★</div><div class="t-q">"My website at anna.digisyn.co looks incredible. Recruiters keep complimenting it. Worth every peso and then some."</div><div class="t-name">Anna R.</div><div class="t-role">Marketing Strategist, BGC</div></div>
+      <div class="testi"><div class="t-stars">★★★★★</div><div class="t-q">"Fast, professional, stunning. I went from zero callbacks to landing my dream job at a multinational in 2 weeks."</div><div class="t-name">Patricia L.</div><div class="t-role">Financial Analyst, Ortigas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section bg-offwhite" id="contact">
+  <div class="sec-inner">
+    <p class="eyebrow">Get Started</p>
+    <h2 class="sec-h2">Ready to Improve Your CV?</h2>
+    <p class="sec-sub">Fill out the form and we'll get back to you via Messenger within a few hours.</p>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h3>Chat With Us Directly</h3>
+        <p>Prefer a faster reply? Message us on Facebook Messenger — we respond to every inquiry personally.</p>
+        <a href="https://m.me/61558675744252" target="_blank" rel="noopener" class="contact-link"><div class="cl-icon">💬</div><div><div class="cl-lbl">Facebook Messenger</div><div class="cl-val">Message us directly</div></div></a>
+        <a href="https://web.facebook.com/profile.php?id=61558675744252" target="_blank" rel="noopener" class="contact-link"><div class="cl-icon">📘</div><div><div class="cl-lbl">Facebook Page</div><div class="cl-val">Digisyn|Co. DigiCV</div></div></a>
+        <a href="mailto:admin@digisyn.co" class="contact-link"><div class="cl-icon">📧</div><div><div class="cl-lbl">Email</div><div class="cl-val">admin@digisyn.co</div></div></a>
       </div>
-      <div class="testi">
-        <div class="t-stars">★★★★★</div>
-        <div class="t-q">"My website at anna.digisyn.co looks incredible. Recruiters keep complimenting it. Worth every peso and then some."</div>
-        <div class="t-name">Anna R.</div>
-        <div class="t-role">Marketing Strategist, BGC</div>
-      </div>
-      <div class="testi">
-        <div class="t-stars">★★★★★</div>
-        <div class="t-q">"Fast, professional, stunning result. I went from zero callbacks to landing my dream job at a multinational in 2 weeks."</div>
-        <div class="t-name">Patricia L.</div>
-        <div class="t-role">Financial Analyst, Ortigas</div>
+      <div class="contact-form-box">
+        <div class="form-title">Send Us Your Details</div>
+        <div class="form-row">
+          <div class="fg"><label>Full Name</label><input type="text" placeholder="Juan dela Cruz"></div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="juan@email.com"></div>
+        </div>
+        <div class="fg"><label>Target Position / Job Role</label><input type="text" placeholder="e.g. Software Engineer, Marketing Manager"></div>
+        <div class="fg">
+          <label>Upload Your CV (optional)</label>
+          <div class="upload-area">
+            <input type="file" accept=".pdf,.doc,.docx">
+            <div class="upload-ico">📎</div>
+            <div class="upload-txt"><strong>Click to upload</strong> or drag and drop<br>PDF, DOC, DOCX — up to 10MB</div>
+          </div>
+        </div>
+        <div class="fg"><label>Other Notes / Requests</label><textarea placeholder="Target industries, job level, style preferences…"></textarea></div>
+        <a href="https://m.me/61558675744252" target="_blank" rel="noopener" class="form-submit">💬 Send via Messenger</a>
+        <div class="form-note">We'll receive your info and reply via Messenger within a few hours.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-banner">
-  <h2 class="cta-h2">Ready to <em>Stand Out</em><br>From the Crowd?</h2>
-  <p class="cta-p">Join hundreds of Filipino professionals who landed better roles with a DigiCV-crafted resume and portfolio.</p>
-  <a href="#pricing" class="btn-cta">✦ &nbsp;Get Your CV Today</a>
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2>Ready to <em>Stand Out</em><br>From the Crowd?</h2>
+  <p>Join hundreds of Filipino professionals who landed better roles with a Digisyn|Co. crafted CV and portfolio.</p>
+  <a href="https://m.me/61558675744252" target="_blank" rel="noopener" class="btn-cta">💬 Get Your CV Today</a>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="foot-inner">
     <div>
-      <div class="foot-brand">Digi<span>CV</span> by DigiSyn</div>
-      <div class="foot-copy">© 2025 DigiSyn. All rights reserved.</div>
+      <div class="foot-logo">Digisyn<span class="pipe">|</span><span class="co">Co.</span><span class="sub">DigiCV</span></div>
+      <div class="foot-copy">© 2026 Digisyn Co. All rights reserved.</div>
     </div>
     <div class="foot-links">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">Email Us</a>
-      <a href="#">digisyn.co</a>
+      <a href="https://web.facebook.com/profile.php?id=61558675744252" target="_blank">Facebook</a>
+      <a href="https://m.me/61558675744252" target="_blank">Messenger</a>
+      <a href="mailto:admin@digisyn.co">Email</a>
+      <a href="https://digisyn.co" target="_blank">digisyn.co</a>
     </div>
   </div>
 </footer>
+
+<!-- FLOATING MESSENGER -->
+<a href="https://m.me/61558675744252" target="_blank" rel="noopener" class="fb-float">
+  <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 2C7.373 2 2 7.1 2 13.4c0 3.36 1.494 6.37 3.893 8.48V26l4.3-2.36c1.148.318 2.364.49 3.607.49 6.627 0 12-5.1 12-11.4S20.627 2 14 2z" fill="white"/><path d="M15.07 16.8l-3.05-3.26-5.95 3.26 6.54-6.94 3.13 3.26 5.87-3.26-6.54 6.94z" fill="#0084ff"/></svg>
+  <span class="fb-float-label">Chat with us</span>
+</a>
 
 </body>
 </html>
